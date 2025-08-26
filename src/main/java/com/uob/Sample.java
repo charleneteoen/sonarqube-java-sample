@@ -1,6 +1,6 @@
 package com.uob;
 
-import java.security.MessageDigest;
+import java.io.File;
 
 public class Sample {
 
@@ -9,15 +9,9 @@ public class Sample {
         System.out.println(str.length()); // BUG: Null pointer dereference
     }
 
-    public void vulnerableMethod() throws Exception {
-        // VULNERABILITY: Hardcoded password
-        String password = "12345";  
-        System.out.println("Using password: " + password);
-
-        // VULNERABILITY: Weak hashing (MD5)
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        md.update("test".getBytes());
-        byte[] digest = md.digest();
-        System.out.println(digest);
+    public void vulnerableMethod(String userInput) {
+        // VULNERABILITY: User-controlled input used directly in file path
+        File file = new File("/tmp/" + userInput);
+        System.out.println("File exists? " + file.exists());
     }
 }

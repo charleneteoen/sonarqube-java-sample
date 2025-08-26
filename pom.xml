@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.uob</groupId>
   <artifactId>uob-sonarcloud-day2</artifactId>
@@ -8,13 +9,9 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- Java version -->
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <java.version>11</java.version>
-    
-    <!-- SonarCloud configuration -->
+
     <sonar.projectKey>charleneteoen_sonarqube-java-sample</sonar.projectKey>
     <sonar.organization>charleneteoen</sonar.organization>
   </properties>
@@ -28,4 +25,3 @@
     </dependency>
   </dependencies>
 </project>
-

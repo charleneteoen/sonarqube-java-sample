@@ -1,8 +1,6 @@
 package com.uob;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.security.MessageDigest;
 
 public class Sample {
 
@@ -11,15 +9,15 @@ public class Sample {
         System.out.println(str.length()); // BUG: Null pointer dereference
     }
 
-    public void vulnerableMethod() {
-        String userInput = "1 OR 1=1"; // simulate untrusted input
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:h2:mem:test");
-            Statement stmt = conn.createStatement();
-            stmt.execute("SELECT * FROM users WHERE id=" + userInput); 
-            // VULNERABILITY: SQL Injection
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void vulnerableMethod() throws Exception {
+        // VULNERABILITY: Hardcoded password
+        String password = "12345";  
+        System.out.println("Using password: " + password);
+
+        // VULNERABILITY: Weak hashing (MD5)
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update("test".getBytes());
+        byte[] digest = md.digest();
+        System.out.println(digest);
     }
 }

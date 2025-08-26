@@ -5,19 +5,20 @@
   <groupId>com.uob</groupId>
   <artifactId>uob-sonarcloud-day2</artifactId>
   <version>1.0.0</version>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!-- Change these from 17 to 11 -->
+    <!-- Java version -->
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <java.version>11</java.version>
     
-    <!-- Rest of your properties -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <sonar.projectKey>immalcolm_sonarqube-java-sample</sonar.projectKey>
-    <sonar.organization>immalcolm</sonar.organization>
+    <!-- SonarCloud configuration -->
+    <sonar.projectKey>charleneteoen_sonarqube-java-sample</sonar.projectKey>
+    <sonar.organization>charleneteoen</sonar.organization>
   </properties>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -27,3 +28,4 @@
     </dependency>
   </dependencies>
 </project>
+

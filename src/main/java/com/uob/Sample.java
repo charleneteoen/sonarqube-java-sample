@@ -10,7 +10,7 @@ public class Sample {
     }
 
     public void vulnerableMethod(String userInput) {
-        // VULNERABILITY: User-controlled input used directly in file path
+        // VULNERABILITY: Using user input directly in file path
         File file = new File("/tmp/" + userInput);
         System.out.println("File exists? " + file.exists());
     }

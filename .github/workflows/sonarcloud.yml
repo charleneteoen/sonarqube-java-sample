@@ -1,4 +1,4 @@
-name: SonarCloud Analysis
+  name: SonarCloud Analysis
 
 on:
   push:
@@ -10,8 +10,10 @@ jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -28,16 +30,10 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Build project (if Maven)
+      - name: Build with Maven (if applicable)
         run: |
           if [ -f "pom.xml" ]; then
             mvn clean compile test-compile
-          fi
-
-      - name: Build project (if Gradle)
-        run: |
-          if [ -f "build.gradle" ] || [ -f "build.gradle.kts" ]; then
-            ./gradlew build --no-daemon
           fi
 
       - name: Run SonarCloud Scan
